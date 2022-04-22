@@ -9,7 +9,7 @@ import javax.security.auth.login.LoginException;
 public class Start {
     public static void main(String @NotNull [] args) throws LoginException, InterruptedException, JAPIException {
         JAPI.initialize(args[0]);
-        JAPI.setGuildID("947145508395311176");
+        JAPI.setGuildID(args[1]);
         JAPI.setLegacyCommandPrefix("!");
         new LegacyCommand("help", "help command" , 0, event -> {
             EmbedBuilder builder = new EmbedBuilder();
