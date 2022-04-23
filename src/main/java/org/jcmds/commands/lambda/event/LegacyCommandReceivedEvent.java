@@ -56,4 +56,7 @@ public class LegacyCommandReceivedEvent {
     public Guild getGuild() {
         return event.getGuild();
     }
+    public MessageReceivedEvent getEventAsReceivedMessage() {
+        return event;
+    }
 }

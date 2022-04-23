@@ -46,4 +46,7 @@ public class SlashCommandEvent {
     public OptionMapping getOption(String name) {
         return event.getOption(name);
     }
+    public SlashCommandInteractionEvent getEventAsSlashCommandInteraction() {
+        return event;
+    }
 }

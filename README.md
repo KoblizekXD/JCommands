@@ -7,7 +7,7 @@ public class Start {
     public static void main(String[] args) throws LoginException, InterruptedException, JAPIException {
         JAPI.initialize("Token");
         new SlashCommand("ping", "ping command", true, event -> {
-            event.reply("Pong!").queue();
+            event.reply("Pong!");
         }); 
     }
 }
@@ -24,7 +24,7 @@ JAPI.initialize("token of your bot");
 ##### Slash commands
 ```java
 new SlashCommand("name of command", "description of command", false, event -> {
-    event.reply("I replied lol!").queue();
+    event.reply("I replied lol!");
 });
 ```  
 To make loading interactions faster you should use guildOnly,  
@@ -34,7 +34,7 @@ Example:
 ```java
 JAPI.setGuildID("id of ur server/guild");
 new SlashCommand("name of command", "description of command", true, event -> {
-    event.reply("I replied lol!").queue();
+    event.reply("I replied lol!");
 });
 ```  
 ##### Legacy commands/Normal commands  

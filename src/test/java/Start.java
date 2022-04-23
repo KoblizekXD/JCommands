@@ -19,7 +19,7 @@ public class Start {
             for (var cmd : LegacyCommand.commands) {
                 builder.addField(cmd.getName(), cmd.getDescription(), false);
             }
-            event.getMessage().replyEmbeds(builder.build()).queue();
+            event.replyEmbeds(builder.build());
         });
     }
 }
