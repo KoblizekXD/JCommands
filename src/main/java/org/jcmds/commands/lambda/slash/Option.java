@@ -1,6 +1,8 @@
 package org.jcmds.commands.lambda.slash;
 
+import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
+import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,13 @@ public class Option {
         this.description = description;
         this.isRequired = isRequired;
         this.type = type;
+        choices = new ArrayList<>();
+    }
+    public Option(OptionData mapping) {
+        this.name = mapping.getName();
+        this.description = mapping.getDescription();
+        this.isRequired = mapping.isRequired();
+        this.type = mapping.getType();
         choices = new ArrayList<>();
     }
     public Option addChoice(String name, String description) {

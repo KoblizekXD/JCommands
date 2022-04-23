@@ -1,4 +1,6 @@
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.interactions.commands.OptionMapping;
+import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import org.jcmds.JAPI;
 import org.jcmds.commands.lambda.legacy.LegacyCommand;
 import org.jcmds.error.JAPIException;
@@ -19,9 +21,5 @@ public class Start {
             }
             event.getMessage().replyEmbeds(builder.build()).queue();
         });
-        new LegacyCommand("ping", "replies with bot ping", 0, event -> {
-            event.getMessage().reply(event.getJDA().getRestPing().complete().toString()).queue();
-        });
-
     }
 }
