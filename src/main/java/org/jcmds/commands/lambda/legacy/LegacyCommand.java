@@ -1,14 +1,15 @@
 package org.jcmds.commands.lambda.legacy;
 
 import org.jcmds.commands.lambda.event.LegacyCommandReceivedEvent;
+import org.jcmds.util.Legacy;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public class LegacyCommand {
-    public static final List<LegacyCommand> commands = new ArrayList<>();
+public class LegacyCommand implements Legacy {
+    public static final List<Legacy> commands = new ArrayList<>();
     private final String name;
     private final String description;
     private final int requiredArgCount;
@@ -32,5 +33,9 @@ public class LegacyCommand {
     }
     public Consumer<LegacyCommandReceivedEvent> getEvent() {
         return event;
+    }
+    @Override
+    public void onInteraction(LegacyCommandReceivedEvent event) {
+        // Null
     }
 }
