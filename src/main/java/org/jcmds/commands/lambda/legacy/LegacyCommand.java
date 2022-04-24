@@ -2,6 +2,7 @@ package org.jcmds.commands.lambda.legacy;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import org.jcmds.JAPI;
+import org.jcmds.commands.lambda.event.LegacyCommandReceivedEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +14,9 @@ public class LegacyCommand {
     private final String name;
     private final String description;
     private final int requiredArgCount;
-    private final Consumer<MessageReceivedEvent> event;
+    private final Consumer<LegacyCommandReceivedEvent> event;
 
-    public LegacyCommand(String name, String description, int requiredArgCount, Consumer<MessageReceivedEvent> event) {
+    public LegacyCommand(String name, String description, int requiredArgCount, Consumer<LegacyCommandReceivedEvent> event) {
         this.name = name;
         this.description = description;
         this.requiredArgCount = requiredArgCount;
@@ -31,7 +32,7 @@ public class LegacyCommand {
     public int getRequiredArgCount() {
         return requiredArgCount;
     }
-    public Consumer<MessageReceivedEvent> getEvent() {
+    public Consumer<LegacyCommandReceivedEvent> getEvent() {
         return event;
     }
 }

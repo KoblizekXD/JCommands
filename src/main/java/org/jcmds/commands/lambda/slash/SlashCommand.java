@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.interactions.commands.Command;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import org.jcmds.JAPI;
+import org.jcmds.commands.lambda.event.SlashCommandEvent;
 import org.jcmds.error.JAPIException;
 
 import java.util.ArrayList;
@@ -20,9 +21,9 @@ public class SlashCommand {
     private final String name;
     private final String description;
     private final Option[] options;
-    private final Consumer<SlashCommandInteractionEvent> event;
+    private final Consumer<SlashCommandEvent> event;
 
-    public SlashCommand(String name, String description, Option[] options, Consumer<SlashCommandInteractionEvent> event) throws JAPIException {
+    public SlashCommand(String name, String description, Option[] options, Consumer<SlashCommandEvent> event) throws JAPIException {
         this.name = name;
         this.description = description;
         this.options = options;
@@ -41,7 +42,7 @@ public class SlashCommand {
 
         JAPI.getJDA().updateCommands().addCommands(Commands.slash(name, description).addOptions(data)).queue();
     }
-    public SlashCommand(String name, String description, Consumer<SlashCommandInteractionEvent> event) throws JAPIException {
+    public SlashCommand(String name, String description, Consumer<SlashCommandEvent> event) throws JAPIException {
         this.name = name;
         this.description = description;
         this.options = new Option[0];
@@ -50,7 +51,7 @@ public class SlashCommand {
         commands.add(this);
         JAPI.getJDA().updateCommands().addCommands(Commands.slash(name, description)).queue();
     }
-    public SlashCommand(String name, String description, Option[] options, boolean guildOnly, Consumer<SlashCommandInteractionEvent> event) throws JAPIException {
+    public SlashCommand(String name, String description, Option[] options, boolean guildOnly, Consumer<SlashCommandEvent> event) throws JAPIException {
         this.name = name;
         this.description = description;
         this.options = options;
@@ -67,7 +68,7 @@ public class SlashCommand {
 
         JAPI.getJDA().getGuildById(JAPI.getGuildID()).updateCommands().addCommands(Commands.slash(name, description).addOptions(data)).queue();
     }
-    public SlashCommand(String name, String description, boolean guildOnly, Consumer<SlashCommandInteractionEvent> event) throws JAPIException {
+    public SlashCommand(String name, String description, boolean guildOnly, Consumer<SlashCommandEvent> event) throws JAPIException {
         this.name = name;
         this.description = description;
         this.options = new Option[0];
@@ -85,7 +86,7 @@ public class SlashCommand {
     public Option[] getOptions() {
         return options;
     }
-    public Consumer<SlashCommandInteractionEvent> getEvent() {
+    public Consumer<SlashCommandEvent> getEvent() {
         return event;
     }
 }
