@@ -10,7 +10,8 @@ public class Start {
         JAPI.initialize(args[0]);
         JAPI.setGuildID(args[1]);
         JAPI.setLegacyCommandPrefix("!");
-        new LegacyCommand("help", "help command" , 0, event -> {
+        new TestCommand();
+        /* new LegacyCommand("help", "help command" , 0, event -> {
             EmbedBuilder builder = new EmbedBuilder();
             builder.setAuthor("Help");
             for (var cmd : LegacyCommand.commands) {
@@ -18,6 +19,6 @@ public class Start {
             }
             event.replyEmbeds(builder.build());
         });
-        new LegacyCommand("name", "description", 0, event -> event.reply("Hello world!"));
+        new LegacyCommand("name", "description", 0, event -> event.reply("Hello world!")); */
     }
 }

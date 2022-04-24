@@ -21,8 +21,10 @@ public class DefaultAdapter extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
         SlashCommand.commands.forEach(cmd -> {
-            if (event.getName().equals(cmd.getName()))
+            if (event.getName().equals(cmd.getName()) && cmd.getEvent() != null)
                 cmd.getEvent().accept(new SlashCommandEvent(event));
+            else
+                cmd.onInteraction(new SlashCommandEvent(event));
         });
     }
 }

@@ -6,15 +6,16 @@ import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import org.jcmds.JAPI;
 import org.jcmds.commands.lambda.event.SlashCommandEvent;
 import org.jcmds.error.JAPIException;
+import org.jcmds.util.Slash;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public class SlashCommand {
+public class SlashCommand implements Slash {
 
-    public static final List<SlashCommand> commands = new ArrayList<>();
+    public static final List<Slash> commands = new ArrayList<>();
 
     private final boolean guildOnly;
     private final String name;
@@ -87,5 +88,10 @@ public class SlashCommand {
     }
     public Consumer<SlashCommandEvent> getEvent() {
         return event;
+    }
+
+    @Override
+    public void onInteraction(SlashCommandEvent event) {
+        // Null
     }
 }
