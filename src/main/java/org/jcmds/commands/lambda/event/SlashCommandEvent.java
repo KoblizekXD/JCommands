@@ -3,9 +3,6 @@ package org.jcmds.commands.lambda.event;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
-import net.dv8tion.jda.api.interactions.commands.OptionType;
-import net.dv8tion.jda.api.interactions.commands.build.OptionData;
-import org.jcmds.commands.lambda.slash.Option;
 import org.jcmds.util.Message;
 
 public class SlashCommandEvent {

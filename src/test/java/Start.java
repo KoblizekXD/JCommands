@@ -1,11 +1,8 @@
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.interactions.commands.OptionMapping;
-import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import org.jcmds.JAPI;
 import org.jcmds.commands.lambda.legacy.LegacyCommand;
 import org.jcmds.error.JAPIException;
 import org.jetbrains.annotations.NotNull;
-
 import javax.security.auth.login.LoginException;
 
 public class Start {
@@ -21,5 +18,6 @@ public class Start {
             }
             event.replyEmbeds(builder.build());
         });
+        new LegacyCommand("name", "description", 0, event -> event.reply("Hello world!"));
     }
 }

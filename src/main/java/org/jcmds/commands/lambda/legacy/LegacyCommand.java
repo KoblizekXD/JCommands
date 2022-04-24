@@ -1,7 +1,5 @@
 package org.jcmds.commands.lambda.legacy;
 
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import org.jcmds.JAPI;
 import org.jcmds.commands.lambda.event.LegacyCommandReceivedEvent;
 
 import java.util.ArrayList;
