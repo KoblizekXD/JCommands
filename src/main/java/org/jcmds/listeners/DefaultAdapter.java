@@ -14,8 +14,10 @@ public class DefaultAdapter extends ListenerAdapter {
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         LegacyCommand.commands.forEach(cmd -> {
-            if (event.getMessage().getContentRaw().startsWith(JAPI.getLegacyCommandPrefix()+cmd.getName()) && (event.getMessage().getContentRaw().split(" ").length-1)>=cmd.getRequiredArgCount())
+            if (event.getMessage().getContentRaw().startsWith(JAPI.getLegacyCommandPrefix()+cmd.getName()) && (event.getMessage().getContentRaw().split(" ").length-1)>=cmd.getRequiredArgCount() && cmd.getEvent() != null)
                 cmd.getEvent().accept(new LegacyCommandReceivedEvent(event));
+            else if (event.getMessage().getContentRaw().startsWith(JAPI.getLegacyCommandPrefix()+cmd.getName()) && (event.getMessage().getContentRaw().split(" ").length-1)==cmd.getRequiredArgCount())
+                cmd.onInteraction(new LegacyCommandReceivedEvent(event));
         });
     }
     @Override
