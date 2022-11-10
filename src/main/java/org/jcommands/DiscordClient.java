@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import org.jcommands.listeners.DefaultListener;
 
 import java.util.Arrays;
 
@@ -34,6 +35,7 @@ public class DiscordClient {
     }
     public void login() {
         jda = builder.build();
+        jda.addEventListener(new DefaultListener());
         try {
             jda.awaitReady();
             on = true;
