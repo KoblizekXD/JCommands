@@ -11,6 +11,7 @@ import org.jcommands.listeners.DefaultListener;
 
 import java.util.Arrays;
 
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public class DiscordClient {
     private final String token;
     private final int cooldown;
@@ -46,9 +47,11 @@ public class DiscordClient {
     }
     public void setActivity(Activity activity) {
         jda.getPresence().setActivity(activity);
+        logger.info("Bots status has been changed to " + activity.getName());
     }
     public void setStatus(OnlineStatus status) {
         jda.getPresence().setStatus(status);
+        logger.info("Bots status has been changed to " + status.getKey());
     }
     private boolean isOn() {
         return on;

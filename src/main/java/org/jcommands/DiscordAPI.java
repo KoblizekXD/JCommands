@@ -2,6 +2,7 @@ package org.jcommands;
 
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
+@SuppressWarnings("unused")
 public final class DiscordAPI {
     private DiscordAPI() {}
 
